@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="larp">
+		<jta-data-source>jdbc/larp</jta-data-source>
+		<!-- these 3 entities must be listed here - above. Otherwise, if they are 
+			not here, out persistence unit will assume that all the classes that have 
+			@Entity annotation are included in the persistence.xml. As long as we specify 
+			one of them explicitly, we have to specify the rest. Or NONE - either way -->
+		<properties>
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+		</properties>
+	</persistence-unit>
+</persistence>
